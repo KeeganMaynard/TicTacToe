@@ -12,7 +12,7 @@ public class TicTacToe {
 
     public int play(int row, int col){
         int currentTurn = turn;
-        if(row >= 0 && col >0 && row < SIDE && col < SIDE && game[row][col] == 0){
+        if(row >= 0 && col >= 0 && row < SIDE && col < SIDE && game[row][col] == 0){
             game[row][col] = turn;
             if(turn == 1){
                 turn = 2;
@@ -96,5 +96,17 @@ public class TicTacToe {
             }
         }
         turn = 1;
+    }
+
+    public String result(){
+        if(whoWon() > 0){
+            return "Player " + whoWon() + " won!";
+        }
+        else if(canNotPlay()){
+            return "Tie Game";
+        }
+        else{
+            return "Play!";
+        }
     }
 }
